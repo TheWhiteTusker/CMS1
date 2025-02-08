@@ -1,0 +1,46 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 97vh;
+  overflow: hidden;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;  /* Prevents horizontal scrolling */
+}
+
+app-sidebar {
+  width: 250px;  /* Fixed sidebar width */
+  flex-shrink: 0;  /* Prevent sidebar from shrinking */
+  height: 100%;  /* Full height to match content */
+}
+
+/* Main content styling */
+.main-content {
+  flex: 1;  /* Takes up the remaining space */
+  padding: 20px;
+  overflow-y: auto;  /* Scroll vertically if needed */
+  background: #f4f4f4;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+@media (max-width: 768px) {
+  app-sidebar {
+    width: 200px;  /* Adjust sidebar width for smaller screens */
+  }
+
+  .header {
+    .left-section h1 {
+      font-size: 18px;  /* Slightly smaller heading on smaller screens */
+    }
+    .right-section .time {
+      font-size: 12px;
+    }
+    .right-section .avatar {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

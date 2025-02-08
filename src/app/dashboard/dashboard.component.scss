@@ -1,0 +1,114 @@
+.dashboard {
+  padding: 20px;
+
+  .dashboard-header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      font-size: 24px;
+      color: #333333;
+      margin: 0;
+    }
+  }
+
+  .card-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 370px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #f0f0f0;
+
+      h3 {
+        font-size: 16px;
+        color: #333333;
+        margin: 0;
+      }
+
+      .manage-btn {
+        background-color: #000000;
+        color: #ffffff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background-color: #333333;
+        }
+
+        .icon {
+          font-size: 14px;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0 0 10px 10px;
+    }
+  }
+
+  .kiosk-container {
+    margin-top: 40px;
+    text-align: center;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333333;
+    }
+
+    .kiosk-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;  /* Allows wrapping on smaller screens */
+    }
+
+    .kiosk {
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      padding: 20px;
+      width: 150px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+
+      .kiosk-header {
+        font-size: 16px;
+        font-weight: bold;
+        color: #555555;
+      }
+    }
+  }
+}

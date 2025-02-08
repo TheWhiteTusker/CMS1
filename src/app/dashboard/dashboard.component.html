@@ -1,0 +1,43 @@
+<div class="dashboard">
+
+  <div class="dashboard-header">
+    <h1>Collins Visual Management</h1>
+  </div>
+
+  <div class="card-container">
+
+    <div class="card" (click)="toggleKiosks()">
+      <div class="card-header">
+        <h3>Kioask Management</h3>
+        <button class="manage-btn">
+          <span class="icon">➜</span> Manage
+        </button>
+      </div>
+      <img src="/assets/single.webp" alt="Single Screen">
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Screen Management</h3>
+        <button class="manage-btn">
+          <span class="icon">➜</span> Manage
+        </button>
+      </div>
+      <img src="/assets/multiple.webp" alt="Multiple Screen">
+    </div>
+  </div>
+
+  <div class="kiosk-container" *ngIf="showKiosks">
+    <h3>Available Kiosks</h3>
+    <div class="kiosk-row">
+      <!-- Kiosk 1 with routing link -->
+      <div class="kiosk" *ngFor="let kiosk of kiosks; let i = index">
+        <div class="kiosk-header">
+          <a *ngIf="i === 0" routerLink="/kioask1">{{ kiosk }}</a>
+          <span *ngIf="i !== 0">{{ kiosk }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="screen-layers-container">
+  <h2>Screen Layers</h2>
+  <div class="layers-grid">
+    <div
+      class="layer"
+      *ngFor="let layer of layers; let i = index"
+      (drop)="onDrop($event, i)"
+      (dragover)="allowDrop($event)"
+      (click)="triggerFileInput(i)"
+    >
+      <ng-container *ngIf="layer.fileType === 'image'">
+        <img [src]="layer.fileUrl" alt="Uploaded Image">
+      </ng-container>
+
+      <ng-container *ngIf="layer.fileType === 'video'">
+        <video [src]="layer.fileUrl" controls></video>
+      </ng-container>
+
+      <!-- Placeholder text when no file is uploaded -->
+      <ng-container *ngIf="!layer.fileUrl">
+        <p>Click or Drag & Drop to Upload</p>
+      </ng-container>
+
+      <!-- Hidden file input for manual selection -->
+      <input type="file" #fileInput (change)="onFileSelected($event, i)" hidden>
+    </div>
+  </div>
+</div>
