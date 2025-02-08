@@ -18,12 +18,10 @@ export class Kioask1Component {
 
   constructor(private http: HttpClient) {}
 
-  // Trigger file input when a layer is clicked
   triggerFileInput(index: number): void {
     this.fileInputs.toArray()[index].nativeElement.click();
   }
 
-  // Handle manual file selection
   onFileSelected(event: any, index: number): void {
     const file = event.target.files[0];
     if (file) {
@@ -31,12 +29,10 @@ export class Kioask1Component {
     }
   }
 
-  // Allow drag-and-drop
   allowDrop(event: DragEvent): void {
     event.preventDefault();
   }
 
-  // Handle drag-and-drop file uploads
   onDrop(event: DragEvent, index: number): void {
     event.preventDefault();
     const file = event.dataTransfer?.files[0];
@@ -45,16 +41,17 @@ export class Kioask1Component {
     }
   }
 
-  // Upload file to Synology server
   private uploadFileToSynology(file: File, index: number): void {
     const formData = new FormData();
     formData.append('file', file);
 
-    this.http.post('http://YOUR_SYNOLOGY_SERVER_IP/upload', formData).subscribe(
+    const apiUrl = 'http://192.168.1.8:3000/upload';
+
+    this.http.post(apiUrl, formData).subscribe(
       (response: any) => {
-        if (response.success) {
+        if (response.message === 'File uploaded successfully') {
           this.layers[index] = {
-            fileUrl: `http://YOUR_SYNOLOGY_SERVER_IP/files/${file.name}`,
+            fileUrl: `http://192.168.1.8:3000/files/${file.name}`,
             fileType: file.type.startsWith('image') ? 'image' : 'video',
             fileName: file.name
           };
